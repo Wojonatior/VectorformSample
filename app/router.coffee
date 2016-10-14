@@ -3,8 +3,8 @@
 
 Router = Ember.Router.extend
   location: config.locationType
-  rootURL: config.rootURL
 
 Router.map ->
+  @route 'todo'
 
 `export default Router;`
