@@ -8,7 +8,7 @@ TodoPage = PageObject.create
   setTaskName: fillable('.task-name-input')
   taskInputValue: value('.task-name-input')
 
-  players: collection
+  tasks: collection
     itemScope: '.tasks'
 
 `export default TodoPage`

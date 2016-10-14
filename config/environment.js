@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'vectorform',
+    podModulePrefix: 'vectorform/pods',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

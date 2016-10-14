@@ -1,1 +1,3 @@
-p You got dere!
+p this is proof that the page works
+each model as |task|
+  p = task
