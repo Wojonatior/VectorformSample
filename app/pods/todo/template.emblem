@@ -1,3 +1,5 @@
-p this is proof that the page works
-each model as |task|
-  p = task
+= input class="task-name-input input" type="text" value=taskName placeholder="Enter a task" enter="addTask"
+button.add-task click="addTask" Add a task
+.tasks
+  each model as |task|
+    p.task = task

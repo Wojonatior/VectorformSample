@@ -9,7 +9,7 @@ TodoPage = PageObject.create
   taskInputValue: value('.task-name-input')
 
   tasks: collection
-    itemScope: '.tasks'
+    itemScope: '.task'
 
 `export default TodoPage`
 

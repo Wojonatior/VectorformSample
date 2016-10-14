@@ -14,11 +14,11 @@ describe "Integration: Todo", ->
 
   describe "adding players", ->
     it "can add a new player", ->
-      expect(@page.tasks().toArray().length).to.equal 3
+      expect(@page.tasks().toArray().length).to.equal 0
 
       @addTask("derp")
 
       andThen =>
-        expect(@page.tasks().toArray().length).to.equal 4
+        expect(@page.tasks().toArray().length).to.equal 1
         expect(@page.taskInputValue).to.equal ""
 
