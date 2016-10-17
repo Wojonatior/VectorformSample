@@ -6,7 +6,12 @@ TodoController = Ember.Controller.extend
 
   actions:
     addTask: ->
-      @model.pushObject @taskName
+      newTask = @store.createRecord 'task',
+        name: @taskName
+        completed: false
+      newTask.save()
+      #@model.pushObject @taskName
       @set('taskName', '')
 
 `export default TodoController;`
+

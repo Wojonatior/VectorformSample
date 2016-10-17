@@ -13,6 +13,18 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    firebase: {
+      apiKey: "AIzaSyAyEc12uol9NjuBLJWolT_ElgnrYvhMCF8",
+      authDomain: "vectorform-f6a78.firebaseapp.com",
+      databaseURL: "https://vectorform-f6a78.firebaseio.com",
+      storageBucket: "",
+      messagingSenderId: "263062539356"
+    },
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
@@ -37,6 +49,14 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.firebase = {
+      apiKey: "AIzaSyCvvauhGb8sKwzEQkEVISFFLyP_mx7Xl1Q",
+      authDomain: "vectorform-test.firebaseapp.com",
+      databaseURL: "https://vectorform-test.firebaseio.com",
+      storageBucket: "vectorform-test.appspot.com",
+      messagingSenderId: "388755819974"
+    };
   }
 
   if (environment === 'production') {

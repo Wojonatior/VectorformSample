@@ -2,4 +2,4 @@
 button.add-task click="addTask" Add a task
 .tasks
   each model as |task|
-    p.task = task
+    p.task = task.name

@@ -10,6 +10,14 @@ describe "Integration: Todo", ->
       @page.addTask()
 
   beforeEach ->
+    Em.run =>
+      # Emberfire broke the @store.unloadAll method
+      # This is a workaround to clear all records from the store between tests
+      storedTasks = @store.findAll('task')
+      storedTasks.then ->
+        storedTasks.forEach (item) ->
+          item.destroyRecord()
+
     @page.visit()
 
   describe "adding players", ->
