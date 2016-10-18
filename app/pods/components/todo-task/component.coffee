@@ -6,8 +6,8 @@ taskComponent = Ember.Component.extend
   actions:
     #TODO This should probably bubble up to the controller level so that the component can be re-rendered and have the data reflected in the store
     toggleComplete: ->
-      console.log @get 'task.completed'
-      @toggleProperty 'task.completed'
-      console.log @get 'task.completed'
+      @toggleAction(@get('task.id'))
+    deleteTask: ->
+      @deleteAction(@get('task.id'))
 
 `export default taskComponent;`

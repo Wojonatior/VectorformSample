@@ -2,5 +2,5 @@
 button.add-task click="addTask" Add a task
 .tasks
   each model as |taskModel|
-    todo-task task=taskModel
+    todo-task task=taskModel deleteAction=(action 'deleteTask')
 

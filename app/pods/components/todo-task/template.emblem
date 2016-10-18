@@ -7,4 +7,5 @@ div.task
       button.markActive click="toggleComplete" Reopen
     else
       button.markCompleted click="toggleComplete" Complete
+  button.deleteTask click="deleteTask" Delete
   br
