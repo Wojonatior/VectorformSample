@@ -1,0 +1,10 @@
+div.task
+  .name
+    =task.name
+  .status
+    =task.completed
+    if 'task.completed'
+      button.markActive click="toggleComplete" Reopen
+    else
+      button.markCompleted click="toggleComplete" Complete
+  br

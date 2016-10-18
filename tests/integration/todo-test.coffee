@@ -20,8 +20,8 @@ describe "Integration: Todo", ->
 
     @page.visit()
 
-  describe "adding players", ->
-    it "can add a new player", ->
+  describe "tasks", ->
+    it "can add a new tasks", ->
       expect(@page.tasks().toArray().length).to.equal 0
 
       @addTask("derp")
@@ -29,4 +29,10 @@ describe "Integration: Todo", ->
       andThen =>
         expect(@page.tasks().toArray().length).to.equal 1
         expect(@page.taskInputValue).to.equal ""
+
+    it "can mark tasks completed", ->
+      @addTask("derp")
+      expect(find('.tasks:nth(0) .status').text()).to.eql 'active'
+      click('.tasks:nth(0) .markCompleted')
+      expect(find('.tasks:nth(0) .status').text()).to.eql 'complete'
 

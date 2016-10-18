@@ -10,8 +10,9 @@ TodoController = Ember.Controller.extend
         name: @taskName
         completed: false
       newTask.save()
-      #@model.pushObject @taskName
       @set('taskName', '')
+    completeTask: ->
+
 
 `export default TodoController;`
 
