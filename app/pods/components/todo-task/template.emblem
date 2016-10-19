@@ -2,10 +2,8 @@ div.task
   .name
     =task.name
   .status
-    =task.completed
-    if 'task.completed'
-      button.markActive click="toggleComplete" Reopen
-    else
-      button.markCompleted click="toggleComplete" Complete
+    span Completed:
+    div.checkboxWrapper click="toggleComplete"
+      input type="checkbox" name="completeCheckbox" checked=completed
   button.deleteTask click="deleteTask" Delete
   br
