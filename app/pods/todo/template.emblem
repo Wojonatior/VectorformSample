@@ -4,3 +4,8 @@ button.add-task click="addTask" Add a task
   each model as |taskModel|
     todo-task task=taskModel deleteAction=(action 'deleteTask') toggleAction=(action 'toggleCompleted')
 
+div completed tasks
+button.clearCompleted click="deleteCompleted" Delete Completed
+each completedTasks as |cTask|
+  div
+    =cTask.name

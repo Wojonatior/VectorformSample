@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 
 TodoController = Ember.Controller.extend
-
   tasks: Ember.computed.alias 'model'
+  completedTasks: Ember.computed.filterBy 'tasks', 'completed'
 
   actions:
     deleteTask: (modelId) ->
@@ -23,6 +23,12 @@ TodoController = Ember.Controller.extend
         rec.set('completed', !rec.get('completed'))
         console.log rec.get('completed')
         rec.save()
+
+    deleteCompleted: () ->
+      @get('completedTasks').forEach (elem) ->
+        elem.deleteRecord()
+        elem.save()
+
 
 `export default TodoController;`
 
