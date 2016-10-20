@@ -1,7 +1,11 @@
 = input class="task-name-input input" type="text" value=taskName placeholder="Enter a task" enter="addTask"
 button.add-task click="addTask" Add a task
-.tasks
-  each model as |taskModel|
-    todo-task task=taskModel deleteAction=(action 'deleteTask') toggleAction=(action 'toggleCompleted')
-
+link-to "todo.all"
+  p all
+link-to "todo.complete"
+  p complete
+link-to "todo.active"
+  p active
 button.clearCompleted click="deleteCompleted" Delete Completed
+.tasks
+  = outlet

@@ -1,0 +1,2 @@
+each model as |taskModel|
+  todo-task task=taskModel deleteAction=(action 'deleteTask') toggleAction=(action 'toggleCompleted')
