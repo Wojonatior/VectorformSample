@@ -18,17 +18,14 @@ TodoController = Ember.Controller.extend
       @set('taskName', '')
 
     toggleCompleted: (modelId) ->
-      @store.find('task', modelId).then (rec) ->
-        console.log rec.get('completed')
-        rec.set('completed', !rec.get('completed'))
-        console.log rec.get('completed')
-        rec.save()
+      @store.find('task', modelId).then (task) ->
+        task.set('completed', !task.get('completed'))
+        task.save()
 
     deleteCompleted: () ->
-      @get('completedTasks').forEach (elem) ->
-        elem.deleteRecord()
-        elem.save()
-
+      @get('completedTasks').forEach (completedTask) ->
+        completedTask.deleteRecord()
+        completedTask.save()
 
 `export default TodoController;`
 
