@@ -2,7 +2,10 @@
 
 TodoController = Ember.Controller.extend
   tasks: Ember.computed.alias 'model'
-  completedTasks: Ember.computed.filterBy 'tasks', 'completed'
+  completedTasks: Ember.computed.filterBy 'allTasks', 'completed'
+  activeTasks: Ember.computed.filterBy 'allTasks', 'completed', false
+  activeTasksCount: Ember.computed 'activeTasks', ->
+    @get('activeTasks').length
 
   actions:
     deleteTask: (modelId) ->

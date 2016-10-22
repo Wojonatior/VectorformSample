@@ -7,5 +7,8 @@ link-to "todo.complete"
 link-to "todo.active"
   p active
 button.clearCompleted click="deleteCompleted" Delete Completed
+p num active task
+=activeTasksCount
+
 .tasks
   = outlet
