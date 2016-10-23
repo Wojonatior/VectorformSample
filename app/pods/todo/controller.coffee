@@ -1,7 +1,11 @@
 `import Ember from 'ember'`
 
 TodoController = Ember.Controller.extend
+  application: Ember.inject.controller('application')
+
   tasks: Ember.computed.alias 'model'
+  currentPath : Ember.computed.alias 'application.currentPath'
+
   completedTasks: Ember.computed.filterBy 'allTasks', 'completed'
   activeTasks: Ember.computed.filterBy 'allTasks', 'completed', false
   activeTasksCount: Ember.computed 'activeTasks', ->
