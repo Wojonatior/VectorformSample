@@ -14,8 +14,6 @@ p.control.is-grouped
 button.clearCompleted.button.is-danger click="deleteCompleted" Delete Completed
 p num active task
 =activeTasksCount
-p currentPath
-=currentPath
 
 table.table.tasks
   thead
