@@ -13,9 +13,11 @@ describe "Integration: Todo", ->
       click(".tasks:nth(#{taskNum}) .toggle-complete")
 
     @exists = (selector) ->
-      !!find(selector).length
+      find(selector).length > 0
 
-  beforeEach ->
+  beforeEach (done) ->
+    @timeout(500)
+    setTimeout done, 300
     Em.run =>
       # Emberfire broke the @store.unloadAll method
       # This is a workaround to clear all records from the store between tests
@@ -35,6 +37,21 @@ describe "Integration: Todo", ->
       andThen =>
         expect(@page.tasks().toArray().length).to.equal 1
         expect(@page.taskInputValue).to.equal ""
+
+    it "doesn't use a class for active tasks", ->
+      @addTask("derp")
+
+      andThen =>
+         expect(@exists('.fa-square-o')).to.equal true
+         expect(@exists('tr.completed')).to.equal false
+
+    it "uses a class for completed tasks", ->
+      @addTask("derp")
+      @toggleComplete(0)
+
+      andThen =>
+         expect(@exists('.fa-check-square-o')).to.equal true
+         expect(@exists('tr.completed')).to.equal true
 
     it "can mark tasks completed", ->
       @addTask("derp")
@@ -56,6 +73,4 @@ describe "Integration: Todo", ->
 
       andThen =>
         expect(@exists('.fa-square-o')).to.equal true
-
-    it "displays completed tasks differently", ->
 
