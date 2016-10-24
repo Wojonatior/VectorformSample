@@ -1,7 +1,8 @@
 td.name
   =task.name
 td.status
-  span.icon click="toggleComplete"
-    i.fa class=completed:fa-check-square-o:fa-square-o
-  span.deleteTask.icon click="deleteTask"
-    i.fa.fa-close
+  .is-pulled-right
+    span.icon click="toggleComplete"
+      i.fa class=completed:fa-check-square-o:fa-square-o
+    span.deleteTask.icon click="deleteTask"
+      i.fa.fa-close
