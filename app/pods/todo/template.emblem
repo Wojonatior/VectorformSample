@@ -1,47 +1,48 @@
-section.hero.is-primary
-  .container
+.todo-page
+  section.hero.is-primary
+    .container
+      .hero-body
+        h1.title.is-1 To-do It
+
+
+  section.hero
     .hero-body
-      h1.title.is-1 To-do It
+      .container
+        nav.level
+          .level-left
+            .level-item
+              .control.is-grouped
+                .control
+                  = input class="task-name-input input" type="text" value=taskName placeholder="Enter a task" enter="addTask"
+                .control
+                  a.add-task.button.is-success click="addTask" Add a task
+          .level-right
+            .level-item
+              a.clearCompleted.button.is-danger.is-pulled-right click="deleteCompleted" Delete Completed
 
 
-section.hero
-  .hero-body
-    .container
-      nav.level
-        .level-left
-          .level-item
-            .control.is-grouped
-              .control
-                = input class="task-name-input input" type="text" value=taskName placeholder="Enter a task" enter="addTask"
-              .control
-                a.add-task.button.is-success click="addTask" Add a task
-        .level-right
-          .level-item
-            a.clearCompleted.button.is-danger.is-pulled-right click="deleteCompleted" Delete Completed
+      .container
+        nav.nav.has-shadow
+          .container
+            .nav-left
+              a.nav-item.is-tab class=inAll:is-active:
+                link-to "todo.all"
+                  p All
+              a.nav-item.is-tab class=inComplete:is-active:
+                link-to "todo.complete"
+                  p Complete
+              a.nav-item.is-tab class=inActive:is-active:
+                link-to "todo.active"
+                  p Active
+            .nav-right
+              .nav-item
+                span {{activeTasksCount}} tasks are active
 
-
-    .container
-      nav.nav.has-shadow
-        .container
-          .nav-left
-            a.nav-item.is-tab class=inAll:is-active:
-              link-to "todo.all"
-                p all
-            a.nav-item.is-tab class=inComplete:is-active:
-              link-to "todo.complete"
-                p complete
-            a.nav-item.is-tab class=inActive:is-active:
-              link-to "todo.active"
-                p active
-          .nav-right
-            .nav-item
-              span {{activeTasksCount}} tasks are active
-
-      table.table.is-striped.tasks
-        thead
-          tr
-            th Task
-            th
-        tbody
-          = outlet
+        table.table.tasks
+          thead
+            tr
+              th Task
+              th
+          tbody
+            = outlet
 

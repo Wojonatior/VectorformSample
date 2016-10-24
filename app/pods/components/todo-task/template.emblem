@@ -1,6 +1,6 @@
 td.name
   =task.name
-td.status
+td.modify-task
   .is-pulled-right
     span.icon click="toggleComplete"
       i.fa class=completed:fa-check-square-o:fa-square-o

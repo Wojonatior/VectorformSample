@@ -1,14 +1,16 @@
 `import Ember from 'ember';`
 
 taskComponent = Ember.Component.extend
-  completed: Ember.computed.alias('task.completed')
   tagName: 'tr'
   classNames: ['task']
+  classNameBindings: ["completed"]
+
+  completed: Ember.computed.alias('task.completed')
 
   actions:
-    #TODO This should probably bubble up to the controller level so that the component can be re-rendered and have the data reflected in the store
     toggleComplete: ->
       @toggleAction(@get('task.id'))
+      @rerender()
     deleteTask: ->
       @deleteAction(@get('task.id'))
 
