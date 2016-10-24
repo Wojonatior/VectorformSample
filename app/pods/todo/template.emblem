@@ -1,16 +1,26 @@
 = input class="task-name-input input" type="text" value=taskName placeholder="Enter a task" enter="addTask"
-button.add-task click="addTask" Add a task
-link-to "todo.all"
-  p all
-link-to "todo.complete"
-  p complete
-link-to "todo.active"
-  p active
-button.clearCompleted click="deleteCompleted" Delete Completed
+button.add-task.button.is-success click="addTask" Add a task
+p class=boolean:true:false
+p.control.is-grouped
+  link-to "todo.all"
+    a.button class=inAll:is-primary:
+      p all
+  link-to "todo.complete"
+    a.button class=inComplete:is-primary:
+      p complete
+  link-to "todo.active"
+    a.button class=inActive:is-primary:
+      p active
+button.clearCompleted.button.is-danger click="deleteCompleted" Delete Completed
 p num active task
 =activeTasksCount
 p currentPath
 =currentPath
 
-.tasks
-  = outlet
+table.table.tasks
+  thead
+    tr
+      th task
+      th complete
+  tbody
+    = outlet

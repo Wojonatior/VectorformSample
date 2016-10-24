@@ -6,6 +6,13 @@ TodoController = Ember.Controller.extend
   tasks: Ember.computed.alias 'model'
   currentPath : Ember.computed.alias 'application.currentPath'
 
+  inAll: Ember.computed 'currentPath', ->
+    @get('currentPath') == 'todo.all'
+  inComplete: Ember.computed 'currentPath', ->
+    @get('currentPath') == 'todo.complete'
+  inActive: Ember.computed 'currentPath', ->
+    @get('currentPath') == 'todo.active'
+
   completedTasks: Ember.computed.filterBy 'allTasks', 'completed'
   activeTasks: Ember.computed.filterBy 'allTasks', 'completed', false
   activeTasksCount: Ember.computed 'activeTasks', ->

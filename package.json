@@ -45,6 +45,8 @@
     "loader.js": "^4.0.1"
   },
   "dependencies": {
-    "ember-cli-mocha": "0.10.4"
+    "bulma": "^0.2.3",
+    "ember-cli-mocha": "0.10.4",
+    "ember-font-awesome": "^2.2.0"
   }
 }
