@@ -9,8 +9,11 @@ describe "Integration: Todo", ->
       @page.setTaskName(taskName)
       @page.addTask()
 
-    @markComplete = (taskNum) ->
+    @toggleComplete = (taskNum) ->
       click(".tasks:nth(#{taskNum}) .toggle-complete")
+
+    @exists = (selector) ->
+      !!find(selector).length
 
   beforeEach ->
     Em.run =>
@@ -35,14 +38,24 @@ describe "Integration: Todo", ->
 
     it "can mark tasks completed", ->
       @addTask("derp")
-      expect(find('.fa-check-square-o').length).to.equal 0
-      @markComplete(0)
+
+      expect(@exists('.fa-square-o')).to.equal true
+
+      @toggleComplete(0)
+
       andThen =>
-        expect(find('.fa-check-square-o').length).to.equal 1
+        expect(@exists('.fa-check-square-o')).to.equal true
+
+    it "can mark tasks back to active from complete", ->
+      @addTask("derp")
+
+      expect(@exists('.fa-square-o')).to.equal true
+
+      @toggleComplete(0)
+      @toggleComplete(0)
+
+      andThen =>
+        expect(@exists('.fa-square-o')).to.equal true
 
     it "displays completed tasks differently", ->
 
-
-
-
-fa-check-square-o:fa-square-o
