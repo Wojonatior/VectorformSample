@@ -2,7 +2,7 @@ td.name
   =task.name
 td.modify-task
   .is-pulled-right
-    span.icon click="toggleComplete"
+    span.icon.toggle-complete click="toggleComplete"
       i.fa class=completed:fa-check-square-o:fa-square-o
     span.deleteTask.icon click="deleteTask"
       i.fa.fa-close

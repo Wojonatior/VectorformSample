@@ -9,6 +9,9 @@ describe "Integration: Todo", ->
       @page.setTaskName(taskName)
       @page.addTask()
 
+    @markComplete = (taskNum) ->
+      click(".tasks:nth(#{taskNum}) .toggle-complete")
+
   beforeEach ->
     Em.run =>
       # Emberfire broke the @store.unloadAll method
@@ -32,7 +35,14 @@ describe "Integration: Todo", ->
 
     it "can mark tasks completed", ->
       @addTask("derp")
-      expect(find('.tasks:nth(0) .status').text()).to.eql 'active'
-      click('.tasks:nth(0) .markCompleted')
-      expect(find('.tasks:nth(0) .status').text()).to.eql 'complete'
+      expect(find('.fa-check-square-o').length).to.equal 0
+      @markComplete(0)
+      andThen =>
+        expect(find('.fa-check-square-o').length).to.equal 1
 
+    it "displays completed tasks differently", ->
+
+
+
+
+fa-check-square-o:fa-square-o
